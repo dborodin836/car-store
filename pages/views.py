@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Team
 from cars.models import Car
+from django.core.mail import send_mail
+from django.contrib import messages
 
 
 # Create your views here.
@@ -40,6 +42,26 @@ def services(request):
 
 
 def contact(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        subject = request.POST['subject']
+        message = request.POST['message']
+        phone = request.POST['phone']
+
+        message_body = 'Name: ' + name + '.\nEmail: ' + email + '.\nPhone: ' + phone + '\nMessage: ' + message
+
+        send_mail(
+            subject,
+            message_body,
+            'iiivanov836@gmail.com',
+            ['iiivanov836@gmail.com'],
+            fail_silently=False,
+        )
+
+        messages.success(request, 'Thanks for contacting us.')
+        return redirect('contact')
+
     return render(request, 'pages/contact.html')
 
 
