@@ -11,13 +11,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
 import dj_database_url
-from builtins import all
-from idlelib.pyshell import HOST
 from pathlib import Path
 from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-from urllib.request import localhost
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -30,7 +27,7 @@ SECRET_KEY = 'django-insecure-5+^6gr6x5&3dgt0%k@pr3ot6jzjrel0)p&!k7eutr-km61*=rv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sleepy-badlands-69064.herokuapp.com', 'django-carzone-app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -93,17 +90,7 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'django-project',
-#         'USER': 'postgres',
-#         'PASSWORD': 'linaD2003',
-#         'HOST': 'localhost',
-#     }
-# }
-
-DATABASES = {'default': dj_database_url.config(default='postgres://postgres:linaD2003@localhost/django-project')}
+DATABASES = {'default': dj_database_url.config(default='postgres://postgres:PASSWORD_DB@localhost/django-project')}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -162,8 +149,8 @@ SITE_ID = 1
 # Email sending
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'iiivanov836@gmail.com'
-EMAIL_HOST_PASSWORD = 'Vasiliy@rich'
+EMAIL_HOST_USER = 'EMAIL'
+EMAIL_HOST_PASSWORD = 'PASSWORD_EMAIL'
 EMAIL_USE_TLS = True
 
 # Whitenoice settings
