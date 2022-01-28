@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-5+^6gr6x5&3dgt0%k@pr3ot6jzjrel0)p&!k7eutr-km61*=rv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['stark-woodland-25044.herokuapp.com', 'django-carzone-app']
+ALLOWED_HOSTS = ['blooming-beyond-18986.herokuapp.com', 'django-carzone-app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
