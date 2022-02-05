@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-5+^6gr6x5&3dgt0%k@pr3ot6jzjrel0)p&!k7eutr-km61*=rv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['afternoon-brook-54251.herokuapp.com', '127.0.0.1', 'localhost', '*']
+ALLOWED_HOSTS = ['afternoon-brook-54251.herokuapp.com', '127.0.0.1', 'localhost']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 
@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'django.contrib.staticfiles',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -82,15 +83,6 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'django-project',
-#         'USER': 'postgres',
-#         'PASSWORD': 'linaD2003',
-#         'HOST': 'localhost',
-#     }
-# }
 
 DATABASES = {'default': dj_database_url.config(default='postgres://postgres:linaD2003@localhost/django-project')}
 
@@ -127,7 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-# STATIC_URL = None
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'django_project/static/'),
@@ -135,7 +126,9 @@ STATICFILES_DIRS = [
 
 # Media settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+MEDIA_URL = 'media/'
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = '/var/www/django_project/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
